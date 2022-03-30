@@ -1,4 +1,5 @@
 ﻿using projeto_contabil.Domain;
+using projeto_contabil.Domain.Interface.Services;
 using System.Text;
 using System.Xml.Serialization;
 
@@ -8,9 +9,10 @@ namespace projeto_contabil.Services
     {
         public Task<NfeProc> Execute(IFormFile file)
         {
-            var xml = ReadAsStringAsync(file).Result;
+            string? xml = ReadAsStringAsync(file).Result;
 
-            var serializer = new XmlSerializer(typeof(NfeProc));
+            XmlSerializer? serializer = new XmlSerializer(typeof(NfeProc));
+           
             NfeProc result;
 
             using (TextReader reader = new StringReader(xml))

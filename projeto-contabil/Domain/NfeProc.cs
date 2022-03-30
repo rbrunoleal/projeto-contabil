@@ -449,7 +449,7 @@ namespace projeto_contabil.Domain
 		[XmlElement(ElementName = "dest", Namespace = "http://www.portalfiscal.inf.br/nfe")]
 		public Dest Dest { get; set; }
 		[XmlElement(ElementName = "det", Namespace = "http://www.portalfiscal.inf.br/nfe")]
-		public Det Det { get; set; }
+		public List<Det> Det { get; set; }
 		[XmlElement(ElementName = "total", Namespace = "http://www.portalfiscal.inf.br/nfe")]
 		public Total Total { get; set; }
 		[XmlElement(ElementName = "transp", Namespace = "http://www.portalfiscal.inf.br/nfe")]

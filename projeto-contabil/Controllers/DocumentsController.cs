@@ -1,6 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using projeto_contabil.Domain;
+﻿using Microsoft.AspNetCore.Mvc;
+using projeto_contabil.Domain.Interface.UseCases;
 
 namespace projeto_contabil.Controllers
 {
@@ -8,16 +7,16 @@ namespace projeto_contabil.Controllers
     [ApiController]
     public class DocumentsController : ControllerBase
     {
-        private readonly IProcessDocumentService _service;
-        public DocumentsController(IProcessDocumentService service)
+        private readonly IProcessDocumentUsecase _useCase;
+        public DocumentsController(IProcessDocumentUsecase useCase)
         {
-            _service = service;
+            _useCase = useCase;
         }
 
         [HttpPost]
         public async Task<IActionResult> UploadDocument(IFormFile file)
         {
-            return Ok(await _service.Execute(file));
+            return Ok(await _useCase.Execute(file));
         }
     }
 }

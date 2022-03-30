@@ -1,4 +1,4 @@
-﻿namespace projeto_contabil.Domain
+﻿namespace projeto_contabil.Domain.Interface.Services
 {
     public interface IProcessDocumentService
     {

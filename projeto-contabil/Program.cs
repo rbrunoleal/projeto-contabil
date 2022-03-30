@@ -1,5 +1,8 @@
 using projeto_contabil.Domain;
+using projeto_contabil.Domain.Interface.Services;
+using projeto_contabil.Domain.Interface.UseCases;
 using projeto_contabil.Services;
+using projeto_contabil.UseCases;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +14,11 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddTransient<IProcessDocumentService, ProcessDocumentService>();
+builder.Services.AddTransient<IProcessDocumentUsecase, ProcessDocumentUsecase>();
+
+builder.Services.Configure<DbClient>(builder.Configuration.GetSection("BookStoreDatabase"));
+
+builder.Services.AddSingleton<BooksService>(); //Temp
 
 var app = builder.Build();
 
