@@ -14,11 +14,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddTransient<IProcessDocumentService, ProcessDocumentService>();
+builder.Services.AddTransient<INotasService, NotasService>();
 builder.Services.AddTransient<IProcessDocumentUsecase, ProcessDocumentUsecase>();
 
-builder.Services.Configure<DbClient>(builder.Configuration.GetSection("BookStoreDatabase"));
-
-builder.Services.AddSingleton<BooksService>(); //Temp
+builder.Services.Configure<DbClient>(builder.Configuration.GetSection("Database"));
 
 var app = builder.Build();
 

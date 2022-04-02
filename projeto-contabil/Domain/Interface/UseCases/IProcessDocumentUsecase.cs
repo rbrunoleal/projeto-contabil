@@ -2,6 +2,6 @@
 {
     public interface IProcessDocumentUsecase
     {
-        Task<NfeProc> Execute(IFormFile file);
+        Task<Nota> Execute(IFormFile file);
     }
 }
